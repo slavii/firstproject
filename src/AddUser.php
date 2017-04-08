@@ -8,8 +8,8 @@ class AddUser
     {
         $db = DBConnection::getInstance();
 
-        $stmt = $db->prepare("INSERT INTO users (usr_login, usr_password, usr_fname, usr_lname, usr_email, usr_phone, usr_url) 
-                                                    VALUES (:login, :password, :firstname, :lastname, :email, :phone, :url)");
+        $stmt = $db->prepare('INSERT INTO users (usr_login, usr_password, usr_fname, usr_lname, usr_email, usr_phone, usr_url) 
+                                                    VALUES (:login, :password, :firstname, :lastname, :email, :phone, :url)');
 
         $stmt->bindParam(':login', $sqlLogin);
         $stmt->bindParam(':password', $sqlPassword);
