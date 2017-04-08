@@ -21,7 +21,7 @@ class AddUser
 
         $sqlLogin = $login;
         $sqlPassword = $password;
-//        $sqlPassword = password_hash($password, PASSWORD_BCRYPT);
+//      $sqlPassword = password_hash($password, PASSWORD_BCRYPT);
         $sqlFirstName = $firstname;
         $sqlLastName = $lastname;
         $sqlEmal = $email;
