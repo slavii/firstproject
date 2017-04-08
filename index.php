@@ -9,8 +9,6 @@ use Project\Controllers\ContactUsController;
 use Project\Controllers\SignInController;
 use Project\Controllers\AjaxController;
 
-use Project\ViewRenderer;
-
 require_once('vendor/autoload.php');
 
 $homeController = new HomeController();
@@ -50,13 +48,7 @@ switch ($_SERVER['REQUEST_URI']) {
         $ajaxController->updateMyCustomResult();
         break;
     }
-
-    case '/testformview': {
-        $renderer = new ViewRenderer();
-        echo $renderer->render('view/testformview.php');
-        break;
-    }
-
+    
     default: {
         echo "The page doesn't exists";
     }
