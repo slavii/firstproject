@@ -1,0 +1,11 @@
+{
+    "name": "fanat/project",
+    "require": {
+        "symfony/validator": "^3.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Project\\": "src/"
+        }
+    }
+}
