@@ -48,8 +48,8 @@ switch ($_SERVER['REQUEST_URI']) {
         $ajaxController->updateMyCustomResult();
         break;
     }
-    
+
     default: {
-        echo "The page doesn't exists";
+        echo "The page doesn't exists!";
     }
 }
