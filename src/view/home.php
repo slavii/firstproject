@@ -27,7 +27,3 @@ echo '<style>' . $style . '</style>';
 <body>
 
 </body>
-
-
-<!--    ID: --><?php //echo $id; ?><!--<br>-->
-<!--    FName: --><?php //echo $fname; ?><!--<br>-->

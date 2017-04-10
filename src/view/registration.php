@@ -27,6 +27,9 @@ echo '<style>' . $style . '</style>';
             <td>
                 <input type="text" name="login" id="login" class="form-control"/>
             </td>
+            <td>
+                <div id="err-login" class="hidden">Please fill Your login name!</div>
+            </td>
         </tr>
         <tr>
             <td>
@@ -82,6 +85,11 @@ echo '<style>' . $style . '</style>';
             </td>
             <td>
                 <input type="url" name="url" id="url" class="form-control"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div id="result" value=""></div>
             </td>
         </tr>
     </table>

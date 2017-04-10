@@ -27,14 +27,14 @@ class LogInUser
 
         //var_dump($result);
 
-        if (isset($result[0]["usr_login"]) || $result[0]["usr_login"] != $login) {
+        if (!isset($result[0]["usr_login"]) || $result[0]["usr_login"] != $login) {
             echo "Bad Luck!";
-            //return 0;
+            return 0;
         }
 
-        session_start([
-            'login' => $login
-        ]);
+        session_start();
+
+        $_SESSION['login'] = $login;
 
         echo "Success!";
     }
