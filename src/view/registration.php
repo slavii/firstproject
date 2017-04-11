@@ -4,9 +4,11 @@
         crossorigin="anonymous"></script>
 
 <?php
-$script = file_get_contents($_SERVER['DOCUMENT_ROOT'] . 'public/registration.js');
+$script1 = file_get_contents($_SERVER['DOCUMENT_ROOT'] . 'public/registration-login-name-field.js');
+$script2 = file_get_contents($_SERVER['DOCUMENT_ROOT'] . 'public/registration-password-field.js');
 $style = file_get_contents($_SERVER['DOCUMENT_ROOT'] . 'public/registration.css');
-echo '<script>' . $script . '</script>';
+echo '<script>' . $script1 . '</script>';
+echo '<script>' . $script2 . '</script>';
 echo '<style>' . $style . '</style>';
 ?>
 
@@ -25,7 +27,7 @@ echo '<style>' . $style . '</style>';
                 Login name:
             </td>
             <td>
-                <input type="text" name="login" id="login" class="form-control"/>
+                <input type="text" name="login" id="login" class="form-control" placeholder="Login name"/>
             </td>
             <td>
                 <div id="err-login" class="hidden">Please fill Your login name!</div>
@@ -37,6 +39,9 @@ echo '<style>' . $style . '</style>';
             </td>
             <td>
                 <input type="password" name="password" id="password" class="form-control"/>
+            </td>
+            <td>
+                <div id="err-password" class="hidden">Please fill Your password!</div>
             </td>
         </tr>
         <tr>
