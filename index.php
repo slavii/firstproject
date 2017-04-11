@@ -8,6 +8,7 @@ use Project\Controllers\RegistrationController;
 use Project\Controllers\ContactUsController;
 use Project\Controllers\SignInController;
 use Project\Controllers\AjaxController;
+use Project\Controllers\SubmitRegistrationController;
 
 require_once('vendor/autoload.php');
 
@@ -17,6 +18,7 @@ $registrationController = new RegistrationController();
 $signInController = new SignInController();
 $myProfileController = new MyProfileController();
 $ajaxController = new AjaxController();
+$submitRegistrationController = new SubmitRegistrationController();
 
 switch ($_SERVER['REQUEST_URI']) {
     case '/': {
@@ -46,6 +48,11 @@ switch ($_SERVER['REQUEST_URI']) {
 
     case '/updateMyCustomResult': {
         $ajaxController->updateMyCustomResult();
+        break;
+    }
+
+    case '/submitregistration': {
+        $submitRegistrationController->register();
         break;
     }
 

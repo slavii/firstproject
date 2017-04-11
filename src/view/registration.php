@@ -4,11 +4,9 @@
         crossorigin="anonymous"></script>
 
 <?php
-$script1 = file_get_contents($_SERVER['DOCUMENT_ROOT'] . 'public/registration-login-name-field.js');
-$script2 = file_get_contents($_SERVER['DOCUMENT_ROOT'] . 'public/registration-password-field.js');
+$script = file_get_contents($_SERVER['DOCUMENT_ROOT'] . 'public/registration.js');
 $style = file_get_contents($_SERVER['DOCUMENT_ROOT'] . 'public/registration.css');
-echo '<script>' . $script1 . '</script>';
-echo '<script>' . $script2 . '</script>';
+echo '<script>' . $script . '</script>';
 echo '<style>' . $style . '</style>';
 ?>
 
@@ -20,7 +18,7 @@ echo '<style>' . $style . '</style>';
 </div>
 
 <body>
-<form method="POST" action="/registration" name="registration" id="registration-form">
+<form method="POST" action="/submitregistration" name="registration" id="registration-form">
     <table class="table1">
         <tr>
             <td>
@@ -51,6 +49,9 @@ echo '<style>' . $style . '</style>';
             <td>
                 <input type="password" name="repassword" id="repassword" class="form-control"/>
             </td>
+            <td>
+                <div id="err-repassword" class="hidden">Please fill the password as above!</div>
+            </td>
         </tr>
         <tr>
             <td>
@@ -58,6 +59,9 @@ echo '<style>' . $style . '</style>';
             </td>
             <td>
                 <input type="text" name="first-name" id="first-name" class="form-control"/>
+            </td>
+            <td>
+                <div id="err-first-name" class="hidden">Please fill Your First name!</div>
             </td>
         </tr>
         <tr>
@@ -67,6 +71,9 @@ echo '<style>' . $style . '</style>';
             <td>
                 <input type="text" name="last-name" id="last-name" class="form-control"/>
             </td>
+            <td>
+                <div id="err-last-name" class="hidden">Please fill Your Last name!</div>
+            </td>
         </tr>
         <tr>
             <td>
@@ -74,6 +81,9 @@ echo '<style>' . $style . '</style>';
             </td>
             <td>
                 <input type="email" name="email" id="email" class="form-control"/>
+            </td>
+            <td>
+                <div id="err-email" class="hidden">Please fill Your Email!</div>
             </td>
         </tr>
         <tr>
@@ -83,6 +93,9 @@ echo '<style>' . $style . '</style>';
             <td>
                 <input type="text" name="phone" id="phone" class="form-control"/>
             </td>
+            <td>
+                <div id="err-phone" class="hidden">Please fill Correct phone number!</div>
+            </td>
         </tr>
         <tr>
             <td>
@@ -90,6 +103,9 @@ echo '<style>' . $style . '</style>';
             </td>
             <td>
                 <input type="url" name="url" id="url" class="form-control"/>
+            </td>
+            <td>
+                <div id="err-url" class="hidden">Please fill Correct URL!</div>
             </td>
         </tr>
         <tr>
@@ -100,6 +116,7 @@ echo '<style>' . $style . '</style>';
     </table>
 
     <input type="submit" name="submit" value="Submit" id="submit-btn"/>
-    <input type="reset" name="cancel" value="Cancel"/>
+    <input type="reset" name="cancel" value="Cancel" id="cancel-btn"/>
 </form>
+
 </body>
