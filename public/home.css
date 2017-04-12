@@ -7,12 +7,13 @@
 body {
     text-align: justify;
     margin: auto;
-    width: 50%;
+    width: 20%;
     padding: 10px;
-    background-image: url("https://s4.postimg.org/5f7rtd9wb/shopping-malls-day-and-night-3d-model-max.jpg");
-    background-repeat: no-repeat;
-    background-size: 100%;
-    background-color: #000000;
+    display: table;
+    /*background-image: url("https://s4.postimg.org/5f7rtd9wb/shopping-malls-day-and-night-3d-model-max.jpg");*/
+    /*background-repeat: no-repeat;*/
+    /*background-size: 100%;*/
+    /*background-color: #000000;*/
 }
 
 .button {

@@ -15,7 +15,6 @@ echo '<style>' . $style . '</style>';
     <input type="button" onclick="location.href='/registration';" value="Register" class="button button2"/>
     <input type="button" onclick="location.href='/contactus';" value="Contact Us" class="button button2"/>
     <input type="button" onclick="location.href='/signin';" value="Sign In" class="button button2"/>
-    <input type="button" onclick="location.href='/myprofile';" value="My Profile" class="button button2"/>
 </div>
 
 <body>
@@ -27,6 +26,9 @@ echo '<style>' . $style . '</style>';
             </td>
             <td>
                 <input type="text" name="login" id="login" class="form-control"/>
+            </td>
+            <td>
+                <div id="err-login" class="hidden">Please fill Your login name!</div>
             </td>
         </tr>
         <tr>
@@ -40,6 +42,6 @@ echo '<style>' . $style . '</style>';
     </table>
 
     <input type="submit" name="submit" value="Submit" id="submit-btn"/>
-    <input type="reset" name="cancel" value="Cancel"/>
+    <input type="reset" name="cancel" value="Cancel" id="cancel-btn"/>
 </form>
 </body>

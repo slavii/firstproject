@@ -13,12 +13,7 @@ class SubmitRegistrationController
         $result = $userService->newUserValidator(
             $_POST["login"],
             $_POST["password"],
-            $_POST["repassword"],
-            "",
-            "",
-            "",
-            "",
-            ""
+            $_POST["repassword"]
         );
         echo $result;
     }

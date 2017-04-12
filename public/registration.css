@@ -10,8 +10,8 @@ body {
     width: 50%;
     padding: 10px;
     /*background-image: url("https://s4.postimg.org/5f7rtd9wb/shopping-malls-day-and-night-3d-model-max.jpg");*/
-    background-repeat: no-repeat;
-    background-size: 100%;
+    /*background-repeat: no-repeat;*/
+    /*background-size: 100%;*/
     /*background-color: #000000;*/
 }
 
@@ -19,7 +19,7 @@ body {
     background-color: #4CAF50;
     border: none;
     color: white;
-    padding: 15px 32px;
+    padding: 10px 32px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -37,10 +37,37 @@ body {
     text-align: center;
 }
 
-.table1 {
-    margin-bottom: 10px;
+.tg {
+    border-collapse: collapse;
+    border-spacing: 0;
     margin-left:auto;
     margin-right:auto;
+}
+
+.tg td {
+    font-family: "Times New Roman", sans-serif;
+    font-size: 14px;
+    padding: 2px 3px;
+    border-style: none;
+    overflow: hidden;
+    word-break: normal;
+}
+
+.tg .empty {
+    font-size: 13px;
+    font-family: "Times New Roman", Times, serif !important;;
+}
+
+.tg .description {
+    font-size: 16px;
+    font-family: "Times New Roman", Times, serif !important;;
+}
+
+.tg .err {
+    font-size: 13px;
+    text-align: center;
+    font-family: "Times New Roman", Times, serif !important;;
+    color: #fe0000;
 }
 
 .hidden {

@@ -19,6 +19,7 @@ echo '<style>' . $style . '</style>';
     <input type="button" onclick="location.href='/registration';" value="Register" class="button button2"/>
     <input type="button" onclick="location.href='/contactus';" value="Contact Us" class="button button2"/>
     <input type="button" onclick="location.href='/signin';" value="Sign In" class="button button2"/>
+    <input type="button" onclick="location.href='/myprofile';" value="My Profile" class="button button2 hidden"/>
 </div>
 
 <div id="ajax-test">Click me</div>
