@@ -18,4 +18,26 @@ class AjaxController
 
         echo $_POST['text_value'] + 1;
     }
+
+    public function loadCities($country)
+    {
+        $array = [];
+        switch ($country) {
+            case 'bg': {
+                $array = [
+                    'Varna',
+                    'Sofia'
+                ];
+                break;
+            }
+            case 'uk': {
+                $array = [
+                    'London',
+                    'Birmingham'
+                ];
+            }
+        }
+
+        echo json_encode($array);
+    }
 }

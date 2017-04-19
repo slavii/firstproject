@@ -17,9 +17,9 @@
         crossorigin="anonymous"></script>
 
 <?php
-//$script = file_get_contents($_SERVER['DOCUMENT_ROOT'] . 'public/contactus.js');
+$script = file_get_contents($_SERVER['DOCUMENT_ROOT'] . 'public/contactus.js');
 $style = file_get_contents($_SERVER['DOCUMENT_ROOT'] . 'public/contactus.css');
-//echo '<script>' . $script . '</script>';
+echo '<script>' . $script . '</script>';
 echo '<style>' . $style . '</style>';
 ?>
 
@@ -32,3 +32,17 @@ echo '<style>' . $style . '</style>';
             <a class="navbar-brand" href="/signin">Sign In</a>
         </div>
 </nav>
+
+<div class="col-xs-5 selectContainer">
+    <select class="form-control" name="country" id="country">
+        <option value="">Choose country</option>
+        <option value="bg">Bulgaria</option>
+        <option value="uk">United Kingdom</option>
+    </select>
+</div>
+
+<div class="col-xs-5 selectContainer">
+    <select class="form-control" name="city" id="city" disabled>
+        <option value="">Choose city</option>
+    </select>
+</div>

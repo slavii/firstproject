@@ -56,6 +56,11 @@ switch ($_SERVER['REQUEST_URI']) {
         break;
     }
 
+    case '/updateCities' : {
+        $ajaxController->loadCities($_POST['country']);
+        break;
+    }
+
     default: {
         echo "The page doesn't exists!";
     }
