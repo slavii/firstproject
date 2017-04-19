@@ -16,6 +16,10 @@
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
         crossorigin="anonymous"></script>
 
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBRmZ5hd5Q2XUi1ROdMo-opFEJYa_3_ec&callback=initMap">
+</script>
+
 <?php
 $script = file_get_contents($_SERVER['DOCUMENT_ROOT'] . 'public/contactus.js');
 $style = file_get_contents($_SERVER['DOCUMENT_ROOT'] . 'public/contactus.css');
@@ -46,3 +50,8 @@ echo '<style>' . $style . '</style>';
         <option value="">Choose city</option>
     </select>
 </div>
+
+</br></br>
+
+<div id="map"></div>
+
