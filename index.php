@@ -9,6 +9,8 @@ use Project\Controllers\ContactUsController;
 use Project\Controllers\SignInController;
 use Project\Controllers\AjaxController;
 use Project\Controllers\SubmitRegistrationController;
+use Project\Controllers\CarsMainController;
+use Project\Controllers\CarsAddController;
 
 require_once('vendor/autoload.php');
 
@@ -19,6 +21,8 @@ $signInController = new SignInController();
 $myProfileController = new MyProfileController();
 $ajaxController = new AjaxController();
 $submitRegistrationController = new SubmitRegistrationController();
+$carsMainController = new CarsMainController();
+$carsAddController = new CarsAddController();
 
 switch ($_SERVER['REQUEST_URI']) {
     case '/': {
@@ -43,6 +47,16 @@ switch ($_SERVER['REQUEST_URI']) {
 
     case '/myprofile': {
         $myProfileController->show();
+        break;
+    }
+
+    case '/cars': {
+        $carsMainController->show();
+        break;
+    }
+
+    case '/addcar': {
+        $carsAddController->show();
         break;
     }
 

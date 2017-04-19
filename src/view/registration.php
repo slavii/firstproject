@@ -18,8 +18,8 @@
 
 
 <?php
-$script = file_get_contents($_SERVER['DOCUMENT_ROOT'] . 'public/registration.js');
-$style = file_get_contents($_SERVER['DOCUMENT_ROOT'] . 'public/registration.css');
+$script = file_get_contents($_SERVER['DOCUMENT_ROOT'] . 'public/js/registration.js');
+$style = file_get_contents($_SERVER['DOCUMENT_ROOT'] . 'public/css/registration.css');
 echo '<script>' . $script . '</script>';
 echo '<style>' . $style . '</style>';
 ?>
@@ -31,6 +31,7 @@ echo '<style>' . $style . '</style>';
             <a class="navbar-brand" href="/registration">Registration</a>
             <a class="navbar-brand" href="/contactus">Contact Us</a>
             <a class="navbar-brand" href="/signin">Sign In</a>
+            <a class="navbar-brand" href="/cars">Cars</a>
         </div>
 </nav>
 

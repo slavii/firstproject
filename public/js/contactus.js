@@ -41,8 +41,8 @@ $(document).ready(function () {
             success: function (response) {
 
                 var array = JSON.parse(response);
-                lat = array['lat'];
-                lng = array['lng'];
+                var lat = array['lat'];
+                var lng = array['lng'];
 
                 initMap(lat, lng);
             }
@@ -51,12 +51,12 @@ $(document).ready(function () {
 
 });
 
-function initMap($lat, $lng) {
+function initMap(lat, lng) {
 
-    $lat = $lat || 43.2140504;
-    $lng = $lng || 27.9147333;
+    lat = lat || 43.2140504;
+    lng = lng || 27.9147333;
 
-    var uluru = {lat: $lat, lng: $lng};
+    var uluru = {lat: lat, lng: lng};
     var map = new google.maps.Map(document.getElementById('map'), {
         zoom: 10,
         center: uluru

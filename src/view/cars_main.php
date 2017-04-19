@@ -17,9 +17,9 @@
         crossorigin="anonymous"></script>
 
 <?php
-//$script = file_get_contents($_SERVER['DOCUMENT_ROOT'] . 'public/js/signin.js');
-$style = file_get_contents($_SERVER['DOCUMENT_ROOT'] . 'public/css/signin.css');
-//echo '<script>' . $script . '</script>';
+$script = file_get_contents($_SERVER['DOCUMENT_ROOT'] . 'public/js/cars_main.js');
+$style = file_get_contents($_SERVER['DOCUMENT_ROOT'] . 'public/css/cars_main.css');
+echo '<script>' . $script . '</script>';
 echo '<style>' . $style . '</style>';
 ?>
 
@@ -35,30 +35,6 @@ echo '<style>' . $style . '</style>';
 </nav>
 
 <body>
-<form method="POST" action="/signin" name="signin" id="signin-form">
-    <table class="table1">
-        <tr>
-            <td>
-                Login name:
-            </td>
-            <td>
-                <input type="text" name="login" id="login" class="form-control"/>
-            </td>
-            <td>
-                <div id="err-login" class="hidden">Please fill Your login name!</div>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Password:
-            </td>
-            <td>
-                <input type="password" name="password" id="password" class="form-control"/>
-            </td>
-        </tr>
-    </table>
+    <a href="/addcar" class="btn btn-primary btn-lg" role="button">Add Car</a>
 
-    <input type="submit" name="submit" value="Submit" id="submit-btn"/>
-    <input type="reset" name="cancel" value="Cancel" id="cancel-btn"/>
-</form>
 </body>
