@@ -37,11 +37,13 @@ $(document).ready(function () {
                 repassword: repassword,
             },
             success: function (response) {
-                if (response != 'Yes') {
+                if (response == 'No') {
                     $('#result').text('There is already user with that name!');
                     return 0;
                 }
-                $('#result').text('Successfully!');
+                if (response == 'Yes') {
+                    $('#result').text('Successfully!');
+                }
             }
         });
     });

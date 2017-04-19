@@ -10,11 +10,11 @@ class UserService
 
     public function newUserValidator($login, $password, $repassword, $email = '')
     {
-        if (!strlen($login) >= 3 && !preg_match('/^[a-zA-Z\d]+$/', $login)) {
+        if (strlen($login) < 3 || !preg_match('/^[a-zA-Z\d]+$/', $login)) {
             return 0;
         } else if (!strlen($password) >= 6) {
             return 0;
-        } else if (!strlen($repassword) >= 6 or !($repassword == $password)) {
+        } else if (!strlen($repassword) >= 6 || !($repassword == $password)) {
             return 0;
         }
 

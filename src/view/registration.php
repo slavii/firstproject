@@ -100,4 +100,6 @@ echo '<style>' . $style . '</style>';
     <input type="reset" name="cancel" value="Cancel" id="cancel-btn"/>
 </form>
 
+<div id="result"></div>
+
 </body>

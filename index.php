@@ -61,6 +61,11 @@ switch ($_SERVER['REQUEST_URI']) {
         break;
     }
 
+    case '/updateLocation' : {
+        $ajaxController->setLocation($_POST['location']);
+        break;
+    }
+
     default: {
         echo "The page doesn't exists!";
     }

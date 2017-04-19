@@ -9,9 +9,7 @@ $(document).ready(function () {
             },
             success: function (response) {
 
-                //$("#city").find('option').remove();
-
-                $("#city").html(''); //Chetoh, che .html() raboti po-byrzo ot .empty() ili .remove()
+                $("#city").html('');
                 $("#city").append("<option>" + 'Choose city' + "</option>");
 
                 var array = JSON.parse(response);
@@ -23,29 +21,33 @@ $(document).ready(function () {
 
                 $('#city').prop("disabled", false);
 
-                var appenddata = [];
+                var appendData = [];
                 for (var i = 0; i < array.length; i++) {
-                    appenddata += "<option value = '" + array[i] + " ', class = 'newitem'>" + array[i] + " </option>";
+                    appendData += "<option value = '" + array[i] + "', class = 'newitem'>" + array[i] + " </option>";
                 }
-                $("#city").append(appenddata);
+                $("#city").append(appendData);
 
-                initMap();
+                $('#city').on('change', function () {
+                    var location = $('#city').val() + "," + $('#country').val();
+                    $.ajax({
+                        url: '/updateLocation',
+                        method: 'POST',
+                        data: {
+                            location: location
+                        },
+                        success: function (response) {
 
-                //$('#result').text(array.length);
-                // console.log(array);
+                            var array = JSON.parse(response);
+
+                            //$('#result').text(array);
+                            $('#result').text(response);
+                            console.log(response);
+                        }
+                    });
+                });
             }
         });
     });
+
 });
 
-function initMap() {
-    var uluru = {lat: -25.363, lng: 131.044};
-    var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 4,
-        center: uluru
-    });
-    var marker = new google.maps.Marker({
-        position: uluru,
-        map: map
-    });
-}

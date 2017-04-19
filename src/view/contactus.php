@@ -16,10 +16,6 @@
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
         crossorigin="anonymous"></script>
 
-<script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBRmZ5hd5Q2XUi1ROdMo-opFEJYa_3_ec&callback=initMap">
-</script>
-
 <?php
 $script = file_get_contents($_SERVER['DOCUMENT_ROOT'] . 'public/contactus.js');
 $style = file_get_contents($_SERVER['DOCUMENT_ROOT'] . 'public/contactus.css');
@@ -40,8 +36,8 @@ echo '<style>' . $style . '</style>';
 <div class="col-xs-5 selectContainer">
     <select class="form-control" name="country" id="country">
         <option value="">Choose country</option>
-        <option value="bg">Bulgaria</option>
-        <option value="uk">United Kingdom</option>
+        <option value="Bulgaria">Bulgaria</option>
+        <option value="United Kingdom">United Kingdom</option>
     </select>
 </div>
 
@@ -53,5 +49,4 @@ echo '<style>' . $style . '</style>';
 
 </br></br>
 
-<div id="map"></div>
-
+<div id="result"></div>
