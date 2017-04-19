@@ -26,28 +26,43 @@ $(document).ready(function () {
                     appendData += "<option value = '" + array[i] + "', class = 'newitem'>" + array[i] + " </option>";
                 }
                 $("#city").append(appendData);
+            }
+        });
+    });
 
-                $('#city').on('change', function () {
-                    var location = $('#city').val() + "," + $('#country').val();
-                    $.ajax({
-                        url: '/updateLocation',
-                        method: 'POST',
-                        data: {
-                            location: location
-                        },
-                        success: function (response) {
+    $('#city').on('change', function () {
+        var location = $('#city').val() + "," + $('#country').val();
+        $.ajax({
+            url: '/updateLocation',
+            method: 'POST',
+            data: {
+                location: location
+            },
+            success: function (response) {
 
-                            var array = JSON.parse(response);
+                var array = JSON.parse(response);
+                lat = array['lat'];
+                lng = array['lng'];
 
-                            //$('#result').text(array);
-                            $('#result').text(response);
-                            console.log(response);
-                        }
-                    });
-                });
+                initMap(lat, lng);
             }
         });
     });
 
 });
 
+function initMap($lat, $lng) {
+
+    $lat = $lat || 43.2140504;
+    $lng = $lng || 27.9147333;
+
+    var uluru = {lat: $lat, lng: $lng};
+    var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 10,
+        center: uluru
+    });
+    var marker = new google.maps.Marker({
+        position: uluru,
+        map: map
+    });
+}
