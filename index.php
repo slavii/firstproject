@@ -11,6 +11,7 @@ use Project\Controllers\AjaxController;
 use Project\Controllers\SubmitRegistrationController;
 use Project\Controllers\CarsMainController;
 use Project\Controllers\CarsAddController;
+use Project\Controllers\CarsModelsController;
 
 require_once('vendor/autoload.php');
 
@@ -23,6 +24,7 @@ $ajaxController = new AjaxController();
 $submitRegistrationController = new SubmitRegistrationController();
 $carsMainController = new CarsMainController();
 $carsAddController = new CarsAddController();
+$carsModelsController = new CarsModelsController();
 
 switch ($_SERVER['REQUEST_URI']) {
     case '/': {
@@ -77,6 +79,11 @@ switch ($_SERVER['REQUEST_URI']) {
 
     case '/updateLocation' : {
         $ajaxController->setLocation($_POST['location']);
+        break;
+    }
+
+    case '/updateModels' : {
+        $carsModelsController->updateModels($_POST['make']);
         break;
     }
 
