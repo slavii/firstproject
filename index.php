@@ -12,6 +12,7 @@ use Project\Controllers\SubmitRegistrationController;
 use Project\Controllers\CarsMainController;
 use Project\Controllers\CarsAddController;
 use Project\Controllers\CarsModelsController;
+use Project\Controllers\AddCarController;
 
 require_once('vendor/autoload.php');
 
@@ -25,6 +26,7 @@ $submitRegistrationController = new SubmitRegistrationController();
 $carsMainController = new CarsMainController();
 $carsAddController = new CarsAddController();
 $carsModelsController = new CarsModelsController();
+$addCarController = new AddCarController();
 
 switch ($_SERVER['REQUEST_URI']) {
     case '/': {
@@ -84,6 +86,11 @@ switch ($_SERVER['REQUEST_URI']) {
 
     case '/updateModels' : {
         $carsModelsController->updateModels($_POST['make']);
+        break;
+    }
+
+    case '/submitcar': {
+        $addCarController->addCar();
         break;
     }
 

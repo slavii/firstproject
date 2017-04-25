@@ -30,8 +30,52 @@ $(document).ready(function () {
         });
     });
 
-    $('#submit').on('click', function () {
+    $('#submit').on('click', function (e) {
+        e.preventDefault();
+        var make = $('#make').val();
+        var model = $('#model').val();
+        var year = $('#year').val();
+        var fuel = $('#fuel').val();
+        var gears = $('#gears').val();
+        var price = $('#price').val();
+        $('#result').text('');
 
+        $('.not-empty').addClass('hidden');
+
+        isEmpty(make);
+        isEmpty(model);
+        isEmpty(year);
+        isEmpty(fuel);
+        isEmpty(gears);
+        isEmpty(price);
+
+        $.ajax({
+            url: '/submitcar',
+            method: 'POST',
+            data: {
+                make: make,
+                model: model,
+                year: year,
+                fuel: fuel,
+                gears: gears,
+                price: price
+            },
+            success: function (response) {
+                $('#result').removeClass('hidden');
+                if (response == 'Yes') {
+                    $('#result').text('Successfully!');
+                }
+                else {
+                    $('#result').text('Not Successfully!');
+                }
+            }
+        })
     })
 
 });
+
+function isEmpty(field) {
+    if (field == "") {
+        $('.not-empty').removeClass('hidden');
+    }
+}

@@ -6,7 +6,6 @@ use Project\Services\UserService;
 
 class SubmitRegistrationController
 {
-
     public function register()
     {
         $userService = new UserService();
@@ -17,5 +16,4 @@ class SubmitRegistrationController
         );
         echo $result;
     }
-
 }
