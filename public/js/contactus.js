@@ -40,11 +40,9 @@ $(document).ready(function () {
             },
             success: function (response) {
 
-                var array = JSON.parse(response);
-                var lat = array['lat'];
-                var lng = array['lng'];
+                var coords = JSON.parse(response);
 
-                initMap(lat, lng);
+                initMap(coords['lat'], coords['lng']);
             }
         });
     });
