@@ -7,30 +7,15 @@ use Project\AddCar;
 class AddCarService
 {
 
-    public function newCarValidator($make, $model, $year, $fuel, $gears, $price)
+    public function newCarValidator($arr = [])
     {
-        if ($make == "") {
-            return 0;
-        } else if ($model == "") {
-            return 0;
-        } else if ($year == "") {
-            return 0;
-        } else if ($fuel == "") {
-            return 0;
-        } else if ($gears == "") {
-            return 0;
-        } else if ($price == "") {
-            return 0;
+        foreach ($arr as $item) {
+            if ($item == "") {
+                return 0;
+            }
         }
 
-        new AddCar(
-            $make,
-            $model,
-            $year,
-            $fuel,
-            $gears,
-            $price
-        );
+        new AddCar($arr);
 
         echo "Yes";
     }

@@ -42,23 +42,24 @@ $(document).ready(function () {
 
         $('.not-empty').addClass('hidden');
 
-        isEmpty(make);
-        isEmpty(model);
-        isEmpty(year);
-        isEmpty(fuel);
-        isEmpty(gears);
-        isEmpty(price);
+        var array = {
+            make: make,
+            model: model,
+            year: year,
+            fuel: fuel,
+            gears: gears,
+            price: price
+        };
+
+        for (var key in array) {
+            isEmpty(array[key]);
+        }
 
         $.ajax({
             url: '/submitcar',
             method: 'POST',
             data: {
-                make: make,
-                model: model,
-                year: year,
-                fuel: fuel,
-                gears: gears,
-                price: price
+                car: array
             },
             success: function (response) {
                 $('#result').removeClass('hidden');
