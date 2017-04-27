@@ -9,11 +9,8 @@ class SubmitRegistrationController
     public function register()
     {
         $userService = new UserService();
-        $result = $userService->newUserValidator(
-            $_POST["login"],
-            $_POST["password"],
-            $_POST["repassword"]
+        $userService->newUserValidator(
+            $_POST["personData"]
         );
-        echo $result;
     }
 }

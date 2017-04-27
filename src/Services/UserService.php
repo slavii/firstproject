@@ -8,13 +8,21 @@ use Project\AddUser;
 class UserService
 {
 
-    public function newUserValidator($login, $password, $repassword, $email = '')
+    public function newUserValidator($personData = [])
     {
-        if (strlen($login) < 3 || !preg_match('/^[a-zA-Z\d]+$/', $login)) {
+        if (!strlen($personData["login"]) >= 3) {
             return 0;
-        } else if (!strlen($password) >= 6) {
+        }
+        if (!preg_match('/^[a-zA-Z\d]+$/', $personData["login"])) {
             return 0;
-        } else if (!strlen($repassword) >= 6 || !($repassword == $password)) {
+        }
+        if (!strlen($personData["password"]) >= 6) {
+            return 0;
+        }
+        if (!strlen($personData["repassword"]) >= 6) {
+            return 0;
+        }
+        if (!($personData["repassword"] == $personData["password"])) {
             return 0;
         }
 
@@ -23,7 +31,7 @@ class UserService
         $query = "SELECT * FROM users WHERE usr_login = :login";
         $stmt = $db->prepare($query);
 
-        $stmt->bindParam(':login', $login);
+        $stmt->bindParam(':login', $personData["login"]);
 
         $stmt->execute();
         $result = $stmt->fetchAll();
@@ -33,11 +41,7 @@ class UserService
             return 0;
         }
 
-        new AddUser(
-            $login,
-            $password,
-            $email
-        );
+        new AddUser($personData);
 
         echo "Yes";
     }

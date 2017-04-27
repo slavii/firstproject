@@ -13,6 +13,7 @@ $(document).ready(function () {
         var login = $('#login').val();
         var password = $('#password').val();
         var repassword = $('#repassword').val();
+        var email = $('#email').val();
 
         $('#err-login').addClass('hidden');
         $('#err-password').addClass('hidden');
@@ -28,21 +29,33 @@ $(document).ready(function () {
             $('#err-repassword').removeClass('hidden');
         }
 
+        var personData = {
+            login: login,
+            password: password,
+            repassword: repassword,
+            email: email
+        };
+
         $.ajax({
             url: '/submitregistration',
             method: 'POST',
             data: {
-                login: login,
-                password: password,
-                repassword: repassword,
+                personData: personData
             },
             success: function (response) {
-                if (response == 'No') {
-                    $('#result').text('There is already user with that name!');
-                    return 0;
-                }
-                if (response == 'Yes') {
-                    $('#result').text('Successfully!');
+                switch(response)
+                {
+                    case 'Yes': {
+                        $('#result').text('Successfully!');
+                        break;
+                    }
+                    case 'No': {
+                        $('#result').text('There is already user with that name!');
+                        break;
+                    }
+                    default: {
+                        $('#result').text('Not Successfully!');
+                    }
                 }
             }
         });

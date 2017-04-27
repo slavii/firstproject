@@ -4,20 +4,17 @@ namespace Project;
 
 class AddUser
 {
-    public function __construct($login, $password, $email)
+    public function __construct($personData = [])
     {
         $db = DBConnection::getInstance();
 
         $stmt = $db->prepare('INSERT INTO users (usr_login, usr_password, usr_email) 
                                                     VALUES (:login, :password, :email)');
 
-        $stmt->bindParam(':login', $sqlLogin);
-        $stmt->bindParam(':password', $sqlPassword);
-        $stmt->bindParam(':email', $sqlEmail);
+        $stmt->bindParam(':login', $personData["login"]);
+        $stmt->bindParam(':password', $personData["password"]);
+        $stmt->bindParam(':email', $personData["email"]);
 
-        $sqlLogin = $login;
-        $sqlPassword = $password;
-        $sqlEmail = $email;
         $stmt->execute();
     }
 }

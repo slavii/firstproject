@@ -11,7 +11,7 @@ class AddCarController
     {
         $addCarService = new AddCarService();
         $result = $addCarService->newCarValidator(
-            $_POST["car"]
+            $_POST["carData"]
         );
         echo $result;
     }

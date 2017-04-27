@@ -42,7 +42,7 @@ $(document).ready(function () {
 
         $('.not-empty').addClass('hidden');
 
-        var array = {
+        var carData = {
             make: make,
             model: model,
             year: year,
@@ -51,15 +51,15 @@ $(document).ready(function () {
             price: price
         };
 
-        for (var key in array) {
-            isEmpty(array[key]);
+        for (var key in carData) {
+            isEmpty(carData[key]);
         }
 
         $.ajax({
             url: '/submitcar',
             method: 'POST',
             data: {
-                car: array
+                carData: carData
             },
             success: function (response) {
                 $('#result').removeClass('hidden');
