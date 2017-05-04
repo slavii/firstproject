@@ -3,6 +3,7 @@
 namespace Project\Services;
 
 use Project\AddCar;
+use Project\AddCarImage;
 
 class AddCarService
 {
@@ -16,6 +17,9 @@ class AddCarService
         }
 
         new AddCar($carData);
+
+        $img = new AddCarImage();
+        $img->upload();
 
         echo "Yes";
     }

@@ -3,6 +3,7 @@
 namespace Project;
 
 use Project\Controllers\HomeController;
+use Project\Controllers\LoadCarsImagesController;
 use Project\Controllers\MyProfileController;
 use Project\Controllers\RegistrationController;
 use Project\Controllers\ContactUsController;
@@ -13,6 +14,7 @@ use Project\Controllers\CarsMainController;
 use Project\Controllers\CarsAddController;
 use Project\Controllers\CarsModelsController;
 use Project\Controllers\AddCarController;
+use Project\Controllers\ShowCarsController;
 
 require_once('vendor/autoload.php');
 
@@ -27,6 +29,8 @@ $carsMainController = new CarsMainController();
 $carsAddController = new CarsAddController();
 $carsModelsController = new CarsModelsController();
 $addCarController = new AddCarController();
+$showCarsController = new ShowCarsController();
+$loadCarsImagesController = new LoadCarsImagesController();
 
 switch ($_SERVER['REQUEST_URI']) {
     case '/': {
@@ -61,6 +65,16 @@ switch ($_SERVER['REQUEST_URI']) {
 
     case '/addcar': {
         $carsAddController->show();
+        break;
+    }
+
+    case '/showcars': {
+        $showCarsController->show();
+        break;
+    }
+
+    case '/load-cars-images': {
+        $loadCarsImagesController->loadImages();
         break;
     }
 

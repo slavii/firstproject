@@ -17,8 +17,8 @@
         crossorigin="anonymous"></script>
 
 <?php
-$script = file_get_contents($_SERVER['DOCUMENT_ROOT'] . 'public/js/cars_main.js');
-$style = file_get_contents($_SERVER['DOCUMENT_ROOT'] . 'public/css/cars_main.css');
+$script = file_get_contents($_SERVER['DOCUMENT_ROOT'] . 'public/js/show_cars.js');
+$style = file_get_contents($_SERVER['DOCUMENT_ROOT'] . 'public/css/show_cars.css');
 echo '<script>' . $script . '</script>';
 echo '<style>' . $style . '</style>';
 ?>
@@ -35,6 +35,7 @@ echo '<style>' . $style . '</style>';
 </nav>
 
 <body>
-    <a href="/addcar" class="btn btn-primary btn-lg" role="button">Add Car</a>
-    <a href="/showcars" class="btn btn-primary btn-lg" role="button">Show Cars</a>
+<form method="POST" action="/load-cars-images" name="load-cars-images" id="load-cars-images-form">
+    <div id="result"></div>
+</form>
 </body>

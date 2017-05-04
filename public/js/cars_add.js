@@ -32,12 +32,31 @@ $(document).ready(function () {
 
     $('#submit').on('click', function (e) {
         e.preventDefault();
+
+        var formData = new FormData();
+        var c = 0;
+        var file_data;
+        $('input[type="file"]').each(function () {
+            file_data = $('input[type="file"]')[c].files;
+
+            for (var i = 0; i < file_data.length; i++) {
+                formData.append("file_" + c, file_data[i]);
+            }
+            c++;
+        });
+
+        var other_data = $('new-car').serializeArray();
+        $.each(other_data, function (key, input) {
+            formData.append(input.name, input.value);
+        });
+
         var make = $('#make').val();
         var model = $('#model').val();
         var year = $('#year').val();
         var fuel = $('#fuel').val();
         var gears = $('#gears').val();
         var price = $('#price').val();
+
         $('#result').text('');
 
         $('.not-empty').addClass('hidden');
@@ -59,7 +78,8 @@ $(document).ready(function () {
             url: '/submitcar',
             method: 'POST',
             data: {
-                carData: carData
+                carData: carData,
+                formData: formData
             },
             success: function (response) {
                 $('#result').removeClass('hidden');
@@ -78,5 +98,6 @@ $(document).ready(function () {
 function isEmpty(field) {
     if (field == "") {
         $('.not-empty').removeClass('hidden');
+        return false;
     }
 }

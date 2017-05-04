@@ -10,6 +10,10 @@ body {
     margin-left: 15px;
 }
 
+#image {
+    margin-bottom: 15px;
+}
+
 .container {
     max-width: 80%;
 }

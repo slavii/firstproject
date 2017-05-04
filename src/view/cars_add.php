@@ -34,7 +34,7 @@ echo '<style>' . $style . '</style>';
         </div>
 </nav>
 
-<form method="POST" action="/submitcar" name="new-car" id="new-car-form">
+<form method="POST" action="/submitcar" name="new-car" id="new-car" enctype="multipart/form-data">
     <div class="container">
         <div class="row">
             <div class="col-md-3 col-md-offset-2 selectContainer">
@@ -248,9 +248,9 @@ echo '<style>' . $style . '</style>';
                     <option value="">Year</option>
                     <option value="1995">1995</option>
                     <option value="1996">1996</option>
-                    <option value="1997">1996</option>
-                    <option value="1998">1996</option>
-                    <option value="1999">1996</option>
+                    <option value="1997">1997</option>
+                    <option value="1998">1998</option>
+                    <option value="1999">1999</option>
                     <option value="2000">2000</option>
                     <option value="2001">2001</option>
                     <option value="2002">2002</option>
@@ -279,10 +279,14 @@ echo '<style>' . $style . '</style>';
             <input type="text" class="col-md-2 form-control" name="Price" id="price"/>
         </div>
         <div class="row">
+            <input type="file" class="col-md-4 col-md-offset-3" name="image" id="image">
+        </div>
+        <div class="row">
             <div class="col-md-4 col-md-offset-3 not-empty hidden">Not all required fields are filled!</div>
         </div>
         <div class="row">
-            <button type="button" class="col-md-2 col-md-offset-4 btn btn-success" id="submit">Submit</button>
+            <input type="submit" class="col-md-2 col-md-offset-4 btn btn-success" name="submit" value="SUBMIT"
+                   id="submit"/>
         </div>
         <div class="row">
             <div class="col-md-4 col-md-offset-3 hidden" id="result"></div>
